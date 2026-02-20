@@ -5,6 +5,8 @@ import VolumeChart from "@/components/VolumeChart";
 import HistoricalTable from "@/components/HistoricalTable";
 import FinancialsSection from "@/components/FinancialsSection";
 import AnalysisSummary from "@/components/AnalysisSummary";
+import NewsAnalysis from "@/components/NewsAnalysis";
+import StrategyGeneration from "@/components/StrategyGeneration";
 import { TrendingDown } from "lucide-react";
 
 const Dashboard = () => {
@@ -48,9 +50,15 @@ const Dashboard = () => {
         <p className="text-sm text-muted-foreground leading-relaxed">{companyData.about}</p>
       </div>
 
+      {/* Strategy Generation */}
+      <StrategyGeneration />
+
       {/* Charts */}
       <PriceChart />
       <VolumeChart />
+
+      {/* News Analysis */}
+      <NewsAnalysis />
 
       {/* Analysis */}
       <AnalysisSummary />
