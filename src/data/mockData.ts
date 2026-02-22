@@ -10,21 +10,54 @@ export const companyData = {
   name: "Tata Consultancy Services Limited",
   symbol: "TCS.NS",
   exchange: "NSE",
+  sector: "IT Services",
+  industry: "Consulting & IT Services",
   price: 2694.9,
   change: -27.42,
+  changeAbs: -74.10,
   marketCap: "₹9,75,000 Cr",
   revenue: "₹2,60,802 Cr",
   netProfit: "₹47,716 Cr",
   ebitdaMargin: "26.15%",
   peRatio: "28.4",
+  roe: "45.2%",
+  roa: "18.4%",
+  dividendYield: "1.8%",
+  debtToEquity: "0.05",
+  bookValue: "₹182.5",
+  beta: 1.12,
+  week52High: 3800,
+  week52Low: 2536,
+  currentRatio: 2.8,
+  interestCoverage: "42x",
+  pegRatio: "2.1",
+  priceToBook: "14.8",
+  evToEbitda: "22.3",
+  revenueCagr: "12.5%",
+  profitCagr: "10.8%",
+  epsGrowth: "11.2%",
   about: "Tata Consultancy Services Limited provides information technology (IT) and IT enabled services in the Americas, Europe, India, and internationally. The company provides TCS ADD, a suite of AI powered life sciences platforms; TCS BaNCS, a financial services platform; TCS BFSI Platforms, a cloud-native, as-a-service digital ecosystem for insurers and financial firms.",
   summary: {
     performance: -27.42,
     trend: "Bearish",
+    trendStrength: 70,
     volumeSpike: true,
     sentiment: "Neutral",
+    volatility: "High",
+    atr: 45,
+    riskLevel: "Moderate",
+    deliveryPercent: 62,
+    institutionalActivity: "High",
+    technicalScore: 58,
+    fundamentalScore: 74,
   },
 };
+
+// Sparkline data for 1D
+export const sparklineData = [
+  2750, 2740, 2735, 2728, 2720, 2715, 2710, 2705, 2700, 2695,
+  2698, 2702, 2695, 2690, 2694.9,
+];
 
 export const priceHistory = [
   { date: "2025-03-01", open: 3710, high: 3750, low: 3690, close: 3720, volume: 1800000 },
@@ -73,13 +106,29 @@ export const historicalData = [
   { date: "2026-02-03", open: 2780, high: 2790, low: 2740, close: 2750, volume: "43.7L", change: -1.07 },
 ];
 
-export const financials = [
-  { label: "EBITDA Margin", value: "26.15%" },
-  { label: "Net Profit", value: "₹47,716 Cr" },
-  { label: "Revenue", value: "₹2,60,802 Cr" },
-  { label: "P/E Ratio", value: "28.4" },
-  { label: "Debt to Equity", value: "0.05" },
-  { label: "ROE", value: "45.2%" },
-  { label: "Dividend Yield", value: "1.8%" },
-  { label: "Book Value", value: "₹182.5" },
-];
+export const financials = {
+  profitability: [
+    { label: "Net Profit", value: "₹47,716 Cr" },
+    { label: "EBITDA Margin", value: "26.15%" },
+    { label: "ROE", value: "45.2%" },
+    { label: "ROA", value: "18.4%" },
+  ],
+  valuation: [
+    { label: "P/E Ratio", value: "28.4" },
+    { label: "PEG Ratio", value: "2.1" },
+    { label: "Price to Book", value: "14.8x" },
+    { label: "EV/EBITDA", value: "22.3x" },
+  ],
+  growth: [
+    { label: "Revenue CAGR", value: "12.5%" },
+    { label: "Profit CAGR", value: "10.8%" },
+    { label: "EPS Growth", value: "11.2%" },
+    { label: "Revenue", value: "₹2,60,802 Cr" },
+  ],
+  health: [
+    { label: "Debt to Equity", value: "0.05" },
+    { label: "Interest Coverage", value: "42x" },
+    { label: "Current Ratio", value: "2.8" },
+    { label: "Book Value", value: "₹182.5" },
+  ],
+};

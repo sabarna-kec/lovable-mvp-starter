@@ -9,28 +9,28 @@ const VolumeChart = () => {
   }));
 
   return (
-    <div className="glass-card p-6">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-lg font-semibold text-foreground">Volume Analysis</h2>
-        <span className="text-xs text-warning bg-secondary px-2 py-1 rounded">⚠ Volume Spikes Detected</span>
+    <div className="surface-card p-5">
+      <div className="flex items-center justify-between mb-3">
+        <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Volume</span>
+        <span className="text-[10px] text-warning bg-chart-warning/10 px-2 py-0.5 rounded border border-chart-warning/20">⚠ Spikes Detected</span>
       </div>
-      <ResponsiveContainer width="100%" height={200}>
+      <ResponsiveContainer width="100%" height={120}>
         <BarChart data={data}>
-          <XAxis dataKey="date" stroke="hsl(215 15% 55%)" fontSize={10} tickLine={false} />
-          <YAxis stroke="hsl(215 15% 55%)" fontSize={10} tickLine={false} tickFormatter={(v) => `${v}L`} />
+          <XAxis dataKey="date" stroke="hsl(215 15% 50%)" fontSize={9} tickLine={false} />
+          <YAxis stroke="hsl(215 15% 50%)" fontSize={9} tickLine={false} tickFormatter={v => `${v}L`} />
           <Tooltip
             contentStyle={{
-              backgroundColor: "hsl(220 18% 10%)",
-              border: "1px solid hsl(220 14% 18%)",
-              borderRadius: "8px",
+              backgroundColor: "hsl(222 20% 9%)",
+              border: "1px solid hsl(222 14% 16%)",
+              borderRadius: "6px",
               color: "hsl(210 20% 92%)",
-              fontSize: "12px",
+              fontSize: "10px",
             }}
             formatter={(value: number) => [`${value.toFixed(1)}L`, "Volume"]}
           />
-          <Bar dataKey="volume" radius={[3, 3, 0, 0]}>
+          <Bar dataKey="volume" radius={[2, 2, 0, 0]}>
             {data.map((entry, i) => (
-              <Cell key={i} fill={entry.spike ? "hsl(38 90% 55%)" : "hsl(199 80% 55%)"} opacity={0.8} />
+              <Cell key={i} fill={entry.spike ? "hsl(38 90% 55%)" : "hsl(199 80% 55%)"} opacity={0.7} />
             ))}
           </Bar>
         </BarChart>
