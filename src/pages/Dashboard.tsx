@@ -1,71 +1,40 @@
-import { companyData } from "@/data/mockData";
-import MetricCard from "@/components/MetricCard";
-import PriceChart from "@/components/PriceChart";
-import VolumeChart from "@/components/VolumeChart";
-import HistoricalTable from "@/components/HistoricalTable";
-import FinancialsSection from "@/components/FinancialsSection";
-import AnalysisSummary from "@/components/AnalysisSummary";
+import StockHeader from "@/components/StockHeader";
+import MarketOverview from "@/components/MarketOverview";
+import StrategySection from "@/components/StrategySection";
+import FundamentalsSection from "@/components/FundamentalsSection";
 import NewsAnalysis from "@/components/NewsAnalysis";
-import StrategyGeneration from "@/components/StrategyGeneration";
-import { TrendingDown } from "lucide-react";
+import HistoricalTable from "@/components/HistoricalTable";
 
-const Dashboard = () => {
-  const metrics = [
-    { label: "Market Cap", value: companyData.marketCap },
-    { label: "Current Price", value: `₹${companyData.price.toLocaleString()}` },
-    { label: "Revenue", value: companyData.revenue },
-    { label: "Net Profit", value: companyData.netProfit },
-    { label: "EBITDA Margin", value: companyData.ebitdaMargin },
-  ];
+const Dashboard = () => (
+  <div className="min-h-screen">
+    {/* Zone 1: Stock Header (Sticky) */}
+    <StockHeader />
 
-  return (
-    <div className="container mx-auto px-4 py-6 space-y-6">
-      {/* Company Header */}
-      <div className="glass-card p-6">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div>
-            <h1 className="text-2xl font-bold text-foreground">{companyData.name}</h1>
-            <span className="text-sm text-muted-foreground">{companyData.exchange}: {companyData.symbol}</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="text-3xl font-bold text-foreground font-mono">₹{companyData.price.toLocaleString()}</span>
-            <span className="flex items-center gap-1 text-negative text-sm font-medium">
-              <TrendingDown className="h-4 w-4" />
-              {companyData.change}%
-            </span>
-          </div>
-        </div>
-      </div>
+    {/* Main Content */}
+    <div className="max-w-[1400px] mx-auto px-4 py-6 space-y-8">
+      {/* Zone 2: Market Overview */}
+      <MarketOverview />
 
-      {/* Metrics */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-        {metrics.map((m) => (
-          <MetricCard key={m.label} label={m.label} value={m.value} />
-        ))}
-      </div>
+      {/* Zone 3: Strategy & Signals */}
+      <StrategySection />
 
-      {/* About */}
-      <div className="glass-card p-6">
-        <h2 className="text-lg font-semibold text-foreground mb-3">About</h2>
-        <p className="text-sm text-muted-foreground leading-relaxed">{companyData.about}</p>
-      </div>
+      {/* Zone 4: Fundamentals */}
+      <FundamentalsSection />
 
-      {/* Strategy Generation */}
-      <StrategyGeneration />
-
-      {/* Charts */}
-      <PriceChart />
-      <VolumeChart />
-
-      {/* News Analysis */}
+      {/* Zone 5: News & Sentiment */}
       <NewsAnalysis />
 
-      {/* Analysis */}
-      <AnalysisSummary />
-      <FinancialsSection />
+      {/* Zone 6: Historical Data (Collapsible) */}
       <HistoricalTable />
+
+      {/* Disclaimer */}
+      <div className="surface-card p-4">
+        <p className="text-[10px] text-muted-foreground text-center">
+          ⚠️ StockIT provides simulated data for educational purposes only. This is not financial advice. Always consult a qualified financial advisor before making investment decisions.
+        </p>
+      </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default Dashboard;
